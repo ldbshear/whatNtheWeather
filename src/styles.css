@@ -101,6 +101,10 @@ svg,
   font-weight: bold;
 }
 
+.github {
+  text-align: center;
+}
+
 @media (max-width: 999px) {
   ul {
     padding: 0;
