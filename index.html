@@ -14,5 +14,168 @@
     />
     <link rel="stylesheet" href="src/styles.css" />
   </head>
-  <body></body>
+  <body>
+      <nav
+      class="navbar navbar-light bg-light mb-5 shadow p-3 mb-5 bg-body rounded"
+    >
+      <div class="container-fluid">
+        <span class="navbar-brand fs-1 fw-bold d-block mx-auto mb-4 pt-4"
+          ><img
+            src="images/—Pngtree—beagle puppy clipart_5731316.png"
+            alt=""
+            height="60"
+            class="d-inline-block align-text-middle"
+          />Weather Pup</span
+        >
+      </div>
+    </nav>
+
+    <div class="card appBody">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <div class="card text-center userLocation">
+              <div class="card-body p-3">
+                <form id="searchForm">
+                  <span id="geoHouse" class="geoHouse btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+  <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+</svg>
+</span>
+                  <input
+                    data-search
+                    class="text-center fs-4 border-top-0 border-start-0 border-end-0"
+                    id="userCity"
+                    type="search"
+                    placeholder="City, State or Zipcode"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    id="submitSearch"
+                    class="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                    />
+                  </svg>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div
+            id="updateCity"
+            class="card-header text-center fs-1 cityName"
+          ></div>
+          <div class="currentWeather">
+            <div class="currentWeatherNDetails">
+              <div class="mainTemp">
+                <span id="hiTemp" class="display-3 hiTemp">TBD</span>
+                <span><span id="farenheit" class="degFar">F</span>/<span id="celsius" class="degCel">C</span></span>
+                <div id="currentWeatherIcon">
+                  <img src="images/icons/unknown.png" class="lgIcon" />
+                </div>
+              </div>
+              <div class="dayTime">
+                <p id="dayTime" class="fs-5 loTemp">Day and time</p>
+              </div>
+              <div>
+                <ul>
+                  <li><span id="currentWeatherDetails" class="weatherDetails"
+                  >TBD</span</li>
+                  <li><span id="wind">Windspeed</span></li>
+                  <li><span id="humidity">Humidity</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="container-fluid weatherTipCont">
+              <img
+                src="images/chilly.png"
+                class="rounded weatherPuppy img-fluid"
+                alt="puppy in sweater"
+              />
+              <span class="weatherTip">Wear a jacket</span>
+            </div>
+          </div>
+
+          <div class="weatherForecast">
+            <h2>Tuesday</h2>
+
+            <div class="weatherDetailsContainer">
+              <img
+                src="images/cloudy_icon.svg"
+                class="currentWeatherIcon"
+                alt="cloudy weather"
+              />
+              <span class="weatherDetails">Sunny</span>
+            </div>
+            <div class="forecastTemps">
+              <span class="hiTemp">60°/</span>
+              <span class="loTemp">42°</span>
+            </div>
+          </div>
+
+          <div class="weatherForecast">
+            <h2>Wednesday</h2>
+
+            <div class="weatherDetailsContainer">
+              <img
+                src="images/cloudy_icon.svg"
+                class="currentWeatherIcon"
+                alt="cloudy weather"
+              />
+              <span class="weatherDetails">Sunny</span>
+            </div>
+            <div class="forecastTemps">
+              <span class="hiTemp">60°/</span>
+              <span class="loTemp">42°</span>
+            </div>
+          </div>
+
+          <div class="weatherForecast">
+            <h2>Thursday</h2>
+
+            <div class="weatherDetailsContainer">
+              <img
+                src="images/cloudy_icon.svg"
+                class="currentWeatherIcon"
+                alt="cloudy weather"
+              />
+              <span class="weatherDetails">Sunny</span>
+            </div>
+            <div class="forecastTemps">
+              <span class="hiTemp">60°/</span>
+              <span class="loTemp">42°</span>
+            </div>
+          </div>
+
+          <div class="weatherForecast">
+            <h2>Friday</h2>
+
+            <div class="weatherDetailsContainer">
+              <img
+                src="images/cloudy_icon.svg"
+                class="currentWeatherIcon"
+                alt="cloudy weather"
+              />
+              <span class="weatherDetails">Sunny</span>
+            </div>
+            <div class="forecastTemps">
+              <span class="hiTemp">60°/</span>
+              <span class="loTemp">42°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
 </html>
