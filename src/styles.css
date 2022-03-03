@@ -6,3 +6,110 @@ body {
     rgb(255, 247, 220) 57.6%
   );
 }
+
+h2 {
+  margin-left: 5px;
+}
+
+ul {
+  list-style-type: none;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.card-header {
+  padding: 16px 8px;
+  background-color: #2f4858;
+  color: white;
+}
+
+.cityName {
+  padding: 30px;
+}
+
+.appBody {
+  max-width: 60%;
+  min-width: 370px;
+  box-sizing: border-box;
+  margin: 100px auto;
+  padding: 0 10px 10px;
+  border-width: 1px 0;
+  box-shadow: 0 0.5em 1.5em rgb(0 0 0 / 10%);
+  line-height: 1.5;
+}
+
+.currentWeather,
+.weatherForecast,
+.currentWeatherNDetails {
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+  border-bottom: 1px solid black;
+}
+
+.currentWeatherNDetails {
+  border: none;
+}
+
+svg,
+.degCel,
+.degFar {
+  cursor: pointer;
+}
+
+.weatherDetailsContainer {
+  list-style-type: none;
+  padding: 0 12px;
+}
+
+.mainTemp {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+}
+
+.lgIcon {
+  width: 65px;
+}
+
+.dayTime {
+  margin-left: 8px;
+  line-height: 18px;
+}
+
+.weatherTipCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weatherTip {
+  font-size: 20px;
+}
+.weatherPuppy {
+  width: 65px;
+}
+
+.forecastTemps {
+  margin: 0 10px;
+  padding: 0 12px;
+}
+
+.hiTemp {
+  font-weight: bold;
+}
+
+@media (max-width: 999px) {
+  ul {
+    padding: 0;
+  }
+  .currentWeatherNDetails {
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
