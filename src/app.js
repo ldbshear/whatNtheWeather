@@ -31,6 +31,10 @@ function dayClock() {
 let searchForm = document.getElementById("searchForm");
 let searchIcon = document.getElementById("submitSearch");
 
+function test(response) {
+  console.log(response);
+}
+
 function showWeather(response) {
   console.log(response);
   document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
@@ -57,18 +61,17 @@ function getCity(event) {
   requestCity(userEntry);
 }
 
+function defaultWeather() {
+  let devKey = "3711439e85a5b0487eab981ef384735a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Pittsburgh&appid=${devKey}&units=imperial`;
+  axios.get(apiUrl).then(test);
+}
+
 function requestCity(userEntry) {
   console.log(userEntry);
   let devKey = "3711439e85a5b0487eab981ef384735a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userEntry}&appid=${devKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
-}
-
-function defaultWeather() {
-  let devKey = "3711439e85a5b0487eab981ef384735a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Pittsburgh&appid=${devKey}&units=imperial`;
-  axios.get(apiUrl).then(showWeather);
-  l;
 }
 
 function activate() {
@@ -77,3 +80,4 @@ function activate() {
 
 searchIcon.addEventListener("click", activate);
 searchForm.addEventListener("submit", getCity);
+defaultWeather();
