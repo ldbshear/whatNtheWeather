@@ -37,6 +37,7 @@ function test(response) {
 
 function showWeather(response) {
   console.log(response);
+  document.getElementById("updateCity").innerHTML = `${response.data.name}`;
   document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
   let currentIcon = response.data.weather[0].icon;
   document.getElementById(
@@ -64,7 +65,7 @@ function getCity(event) {
 function defaultWeather() {
   let devKey = "3711439e85a5b0487eab981ef384735a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Pittsburgh&appid=${devKey}&units=imperial`;
-  axios.get(apiUrl).then(test);
+  axios.get(apiUrl).then(showWeather);
 }
 
 function requestCity(userEntry) {
