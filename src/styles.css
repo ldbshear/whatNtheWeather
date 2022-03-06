@@ -39,15 +39,12 @@ ul {
   line-height: 1.5;
 }
 
-.currentWeather,
-.weatherForecast,
-.currentWeatherNDetails {
-  display: flex;
-  flex-direction: row wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 30px;
-  border-bottom: 1px solid black;
+.currentWeather {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  justify-items: center;
+  padding: 50px;
 }
 
 .currentWeatherNDetails {
