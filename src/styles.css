@@ -1,10 +1,17 @@
 body {
   min-height: 100vh;
-  background-image: url();
+  background-image: url("../images/pawPrint.png");
+  background-position: left;
 }
 
 h2 {
   margin-left: 5px;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  color: #2f4858;
 }
 
 ul {
@@ -13,6 +20,12 @@ ul {
   font-size: 12px;
   line-height: 16px;
   padding: 0;
+}
+
+svg,
+.degCel,
+.degFar {
+  cursor: pointer;
 }
 
 .card-header {
@@ -51,12 +64,6 @@ ul {
   display: flex;
 }
 
-svg,
-.degCel,
-.degFar {
-  cursor: pointer;
-}
-
 .weatherDetailsContainer {
   list-style-type: none;
   padding: 0 12px;
@@ -69,10 +76,6 @@ svg,
 .lgIcon {
   width: 65px;
 }
-
-/* .dayTime {
-  line-height: 18px;
-} */
 
 .weatherTipCont {
 }
@@ -92,7 +95,11 @@ svg,
   font-weight: bold;
 }
 
-.github {
+.petShelter {
+}
+
+.github,
+.forecastBtn {
   display: block;
   text-align: center;
 }
@@ -104,5 +111,8 @@ svg,
     grid-template-rows: repeat(2, auto);
     align-items: start;
     padding: 50px;
+  }
+  .dayTime {
+    margin-left: 12px;
   }
 }
