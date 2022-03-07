@@ -16,6 +16,7 @@ ul {
   white-space: nowrap;
   font-size: 12px;
   line-height: 16px;
+  padding: 0;
 }
 
 .card-header {
@@ -29,7 +30,7 @@ ul {
 }
 
 .appBody {
-  max-width: 60%;
+  max-width: 45%;
   min-width: 370px;
   box-sizing: border-box;
   margin: 100px auto;
@@ -41,9 +42,10 @@ ul {
 
 .currentWeather {
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(3, auto);
-  justify-items: center;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  align-items: start;
+  justify-content: space-between;
   padding: 50px;
 }
 
@@ -63,9 +65,6 @@ svg,
 }
 
 .mainTemp {
-  display: flex;
-  flex-direction: row;
-  justify-content: baseline;
 }
 
 .lgIcon {
@@ -78,15 +77,12 @@ svg,
 }
 
 .weatherTipCont {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .weatherTip {
   font-size: 20px;
 }
 .weatherPuppy {
-  width: 65px;
+  width: 75px;
 }
 
 .forecastTemps {
@@ -101,17 +97,4 @@ svg,
 .github {
   display: block;
   text-align: center;
-}
-
-@media (max-width: 999px) {
-  ul {
-    padding: 0;
-  }
-  .currentWeatherNDetails {
-    border: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
