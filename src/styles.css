@@ -30,7 +30,7 @@ ul {
 }
 
 .appBody {
-  max-width: 45%;
+  max-width: 60%;
   min-width: 370px;
   box-sizing: border-box;
   margin: 100px auto;
@@ -41,10 +41,7 @@ ul {
 }
 
 .currentWeather {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(2, auto);
-  align-items: start;
+  display: flex;
   justify-content: space-between;
   padding: 50px;
 }
@@ -97,4 +94,14 @@ svg,
 .github {
   display: block;
   text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .currentWeather {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    align-items: start;
+    padding: 50px;
+  }
 }
