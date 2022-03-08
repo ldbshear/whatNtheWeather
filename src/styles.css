@@ -1,7 +1,8 @@
 body {
   min-height: 100vh;
   background-image: url("../images/pawPrint.png");
-  background-position: left;
+  background-position: 20% 55%;
+  background-repeat: space;
 }
 
 h2 {
@@ -17,8 +18,8 @@ a {
 ul {
   list-style-type: none;
   white-space: nowrap;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 18px;
+  line-height: 28px;
   padding: 0;
 }
 
@@ -39,7 +40,7 @@ svg,
 }
 
 .appBody {
-  max-width: 60%;
+  max-width: 50%;
   min-width: 370px;
   box-sizing: border-box;
   margin: 100px auto;
@@ -53,15 +54,24 @@ svg,
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 50px;
+  padding: 50px 0;
 }
 
 .currentWeatherNDetails {
   border: none;
 }
 
-.mainTempGroup {
+p.feels {
+  margin-bottom: 0;
+}
+
+.mainTemp {
+  padding: 30px;
+}
+
+.mainTempDisplay {
   display: flex;
+  white-space: nowrap;
 }
 
 .weatherDetailsContainer {
@@ -77,13 +87,15 @@ svg,
   width: 65px;
 }
 
-.weatherTipCont {
+.dayTime {
+  display: flex;
 }
+
 .weatherTip {
   font-size: 20px;
 }
 .weatherPuppy {
-  width: 75px;
+  width: 125px;
 }
 
 .forecastTemps {
@@ -104,15 +116,21 @@ svg,
   text-align: center;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1240px) {
   .currentWeather {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(2, auto);
-    align-items: start;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
     padding: 50px;
   }
+
+  .adoptPet {
+    margin: 0 auto;
+    text-align: center;
+  }
+
   .dayTime {
-    margin-left: 12px;
+    margin: 0 auto;
   }
 }
