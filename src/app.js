@@ -28,44 +28,57 @@ function dayClock() {
   dayNTime.textContent = `${weekDay} ${hour}:${minutes}`;
 }
 
+let imperial = document.getElementById("farenheit");
+let metric = document.getElementById("celsius");
 let searchForm = document.getElementById("searchForm");
 let searchIcon = document.getElementById("submitSearch");
-let metric = document.getElementById("celsius");
 
-function showWeather(response) {
-  console.log(response);
-  document.getElementById("updateCity").innerHTML = `${response.data.name}`;
-  document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
-  let currentIcon = response.data.weather[0].icon;
-  let weatherDescription = response.data.weather[0].description;
-  let feelsLike = response.data.main.feels_like;
+const getWeather = {
+  devKey: "3711439e85a5b0487eab981ef384735a",
 
-  document.getElementById(
-    "currentWeatherIcon"
-  ).innerHTML = `<img src="images/icons/${currentIcon}.png" class="lgIcon" />`;
-  document.querySelector(
-    "#currentWeatherDetails"
-  ).innerHTML = `${weatherDescription.toUpperCase()} in ${response.data.name}.`;
-  document.querySelector(
-    "#wind"
-  ).innerHTML = `There is currently a windspeed of ${response.data.wind.speed}`;
-  document.querySelector(
-    "#humidity"
-  ).innerHTML = `With a humidity of ${response.data.main.humidity}%.`;
-  document.querySelector(
-    "#feelsLike"
-  ).innerHTML = `The temperature feels like it's ${feelsLike}° outside.`;
-}
+  generic: function () {
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=Pittsburgh&appid=${this.devKey}&units=imperial`;
+    axios.get(apiURL).then(this.showWeather);
+  },
 
-//Stops normal submit and refresh behavior
+  farenheit: function (userEntry) {
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${userEntry}&appid=${this.devKey}&units=imperial`;
+    axios.get(apiURL).then(this.showWeather);
+  },
 
-function defaultWeather() {
-  let devKey = "3711439e85a5b0487eab981ef384735a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Pittsburgh&appid=${devKey}&units=imperial`;
+  metric: function (userEntry) {
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${userEntry}&appid=${this.devKey}&units=metric`;
+    axios.get(apiURL).then(this.showWeather);
+  },
 
-  axios.get(apiUrl).then(showWeather);
-}
+  showWeather: function (response) {
+    document.getElementById("updateCity").innerHTML = `${response.data.name}`;
+    document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
+    let currentIcon = response.data.weather[0].icon;
+    let weatherDescription = response.data.weather[0].description;
+    let feelsLike = response.data.main.feels_like;
 
+    document.getElementById(
+      "currentWeatherIcon"
+    ).innerHTML = `<img src="images/icons/${currentIcon}.png" class="lgIcon" />`;
+    document.querySelector(
+      "#currentWeatherDetails"
+    ).innerHTML = `${weatherDescription.toUpperCase()} in ${
+      response.data.name
+    }.`;
+    document.querySelector(
+      "#wind"
+    ).innerHTML = `There is currently a windspeed of ${response.data.wind.speed}`;
+    document.querySelector(
+      "#humidity"
+    ).innerHTML = `With a humidity of ${response.data.main.humidity}%.`;
+    document.querySelector(
+      "#feelsLike"
+    ).innerHTML = `The temperature feels like it's ${feelsLike}° outside.`;
+  },
+};
+
+getWeather.generic();
 
 function requestCity(userEntry) {
   console.log(userEntry);
@@ -78,15 +91,22 @@ function getCity(event) {
   event.preventDefault();
   let userEntry = document.querySelector("#userCity").value;
   document.getElementById("updateCity").innerHTML = `${userEntry}`;
-  requestCity(userEntry);
+  getWeather.farenheit(userEntry);
 }
 
 function activate() {
   document.querySelector("form").requestSubmit();
 }
 
-//metric.addEventListener("click", showMetric);
+farenheit.addEventListener("click", function () {
+  let userEntry = document.querySelector("#userCity").value;
+  getWeather.farenheit(userEntry);
+});
+
+metric.addEventListener("click", function () {
+  let userEntry = document.querySelector("#userCity").value;
+  getWeather.metric(userEntry);
+});
 
 searchIcon.addEventListener("click", activate);
 searchForm.addEventListener("submit", getCity);
-defaultWeather();
