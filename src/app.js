@@ -1,3 +1,4 @@
+//Displays time and date
 setInterval(dayClock, 1000);
 function dayClock() {
   const currentTime = new Date();
@@ -79,13 +80,6 @@ const getWeather = {
 };
 
 getWeather.generic();
-
-function requestCity(userEntry) {
-  console.log(userEntry);
-  let devKey = "3711439e85a5b0487eab981ef384735a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userEntry}&appid=${devKey}&units=imperial`;
-  axios.get(apiUrl).then(showWeather);
-}
 
 function getCity(event) {
   event.preventDefault();
