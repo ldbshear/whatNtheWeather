@@ -29,6 +29,7 @@ function dayClock() {
   dayNTime.textContent = `${weekDay} ${hour}:${minutes}`;
 }
 
+let locator = document.getElementById("geoHouse");
 let imperial = document.getElementById("farenheit");
 let metric = document.getElementById("celsius");
 let searchForm = document.getElementById("searchForm");
@@ -53,6 +54,7 @@ const getWeather = {
   },
 
   showWeather: function (response) {
+    console.log(response);
     document.getElementById("updateCity").innerHTML = `${response.data.name}`;
     document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
     let currentIcon = response.data.weather[0].icon;
@@ -81,6 +83,18 @@ const getWeather = {
 
 getWeather.generic();
 
+function getCoords(pos) {
+  let lat = pos.coords.latitude;
+  let long = pos.coords.longitude;
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${getWeather.devKey}&units=imperial`;
+  axios.get(apiURL).then(getWeather.showWeather);
+}
+
+function navigate() {
+  console.log("click");
+  navigator.geolocation.getCurrentPosition(getCoords);
+}
+
 function getCity(event) {
   event.preventDefault();
   let userEntry = document.querySelector("#userCity").value;
@@ -91,6 +105,8 @@ function getCity(event) {
 function activate() {
   document.querySelector("form").requestSubmit();
 }
+
+locator.addEventListener("click", navigate);
 
 farenheit.addEventListener("click", function () {
   let userEntry = document.querySelector("#userCity").value;
