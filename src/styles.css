@@ -111,13 +111,15 @@ p.feels {
   font-weight: bold;
 }
 
-.petShelter {
-}
-
 .github,
 .forecastBtn {
   display: block;
   text-align: center;
+  margin-bottom: 16px;
+}
+
+.card-forecast {
+  display: flex;
 }
 
 @media (max-width: 1240px) {

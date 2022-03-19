@@ -97,18 +97,19 @@ const getWeather = {
   showForecast: function (res) {
     console.log(res.data.daily);
     const userCardTemplate = document.querySelector("[data-user-template]");
-
     const userCardContainer = document.querySelector(
       "[data-user-cards-container]"
     );
+    userCardContainer.innerHTML = "";
+
     res.data.daily.forEach((day) => {
       const card = userCardTemplate.content.cloneNode(true).children[0];
-      const forecastDay = card.querySelector("[data-header");
-      const weatherForecast = card.querySelector("[data-body");
+      const forecastDay = card.querySelector("[data-header]");
+      const weatherForecastMax = card.querySelector("[data-body]");
+      const weatherForecastMin = card.querySelector("[data-min]");
       forecastDay.textContent = day.dt;
-      weatherForecast.textContent = day.temp.max;
-
-      // weatherForecast.textContent = `${res.data.daily[0].dt} Max temp: ${res.data.daily[0].temp.max} / Min temp: ${res.data.daily[0].temp.min}`;
+      weatherForecastMax.textContent = day.temp.max;
+      weatherForecastMin.textContent = day.temp.min;
       userCardContainer.append(card);
     });
   },
