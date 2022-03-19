@@ -108,8 +108,8 @@ const getWeather = {
       const weatherForecastMax = card.querySelector("[data-body]");
       const weatherForecastMin = card.querySelector("[data-min]");
       forecastDay.textContent = day.dt;
-      weatherForecastMax.textContent = day.temp.max;
-      weatherForecastMin.textContent = day.temp.min;
+      weatherForecastMax.textContent = `High temp ${day.temp.max}°  /`;
+      weatherForecastMin.textContent = `Lo temp ${day.temp.min}°`;
       userCardContainer.append(card);
     });
   },
