@@ -87,6 +87,10 @@ p.feels {
   width: 65px;
 }
 
+.smIcon {
+  width: 40px;
+}
+
 .dayTime {
   display: flex;
 }
