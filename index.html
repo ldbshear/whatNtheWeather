@@ -188,8 +188,19 @@
           </div>
         </div>
         <div class="forecastBtn">
-                <button type="button" class="btn btn-outline-dark">5 day Forecast</button>
+                <button id="fiveDayBtn" type="button" class="btn btn-outline-dark">5 day Forecast</button>
             </div>
+
+             <div class="user-cards" data-user-cards-container></div>
+            <template class="" data-user-template>
+         <div id="quotes" class="card border-info w-50 mx-auto my-auto mb-3">
+        <div class="card-body text-info bg-dark">
+          <h5 class="quoteText card-title" data-header></h5>
+          <p class="quoteAuthor card-text" data-body></p>
+        </div>
+      </div>
+      </template>
+
       </div>
             
     </div>
