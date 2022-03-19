@@ -95,19 +95,26 @@ const getWeather = {
   },
 
   showForecast: function (res) {
-    console.log(res);
+    console.log(res.data.daily);
     const userCardTemplate = document.querySelector("[data-user-template]");
 
     const userCardContainer = document.querySelector(
       "[data-user-cards-container]"
     );
-    userCardContainer.innerHTML = "";
-    const card = userCardTemplate.content.cloneNode(true).children[0];
-    const weatherForecast = card.querySelector("[data-body");
-    weatherForecast.textContent = `${res.data.daily[0].dt} Max temp: ${res.data.daily[0].temp.max} / Min temp: ${res.data.daily[0].temp.min} https://openweathermap.org/img/wn/${res.data.daily[0].weather[0].icon}@2x.png`;
-    userCardContainer.append(card);
+    res.data.daily.forEach((day) => {
+      const card = userCardTemplate.content.cloneNode(true).children[0];
+      const forecastDay = card.querySelector("[data-header");
+      const weatherForecast = card.querySelector("[data-body");
+      forecastDay.textContent = day.dt;
+      weatherForecast.textContent = day.temp.max;
+
+      // weatherForecast.textContent = `${res.data.daily[0].dt} Max temp: ${res.data.daily[0].temp.max} / Min temp: ${res.data.daily[0].temp.min}`;
+      userCardContainer.append(card);
+    });
   },
 };
+
+getFiveDay = {};
 
 getWeather.generic();
 
