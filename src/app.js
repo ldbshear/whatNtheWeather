@@ -57,6 +57,7 @@ const getWeather = {
   showWeather: function (response) {
     console.log(response);
 
+    let pupPhoto = document.getElementById("pupPic");
     document.getElementById("updateCity").innerHTML = `${response.data.name}`;
     document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
     let currentIcon = response.data.weather[0].icon;
@@ -80,6 +81,8 @@ const getWeather = {
     document.querySelector(
       "#feelsLike"
     ).innerHTML = `The temperature feels like it's ${feelsLike}° outside.`;
+
+    
 
     const userCardContainer = document.querySelector(
       "[data-user-cards-container]"
