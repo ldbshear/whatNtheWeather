@@ -55,6 +55,7 @@ const getWeather = {
   },
 
   showWeather: function (response) {
+    console.log(response);
     document.getElementById("updateCity").innerHTML = `${response.data.name}`;
     document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
     let currentIcon = response.data.weather[0].icon;
@@ -81,13 +82,11 @@ const getWeather = {
   },
 
   test: function (userEntry) {
-    console.log("button clicked 1");
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${userEntry}&appid=${this.devKey}&units=imperial`;
     axios.get(apiURL).then(this.getForecast);
   },
 
   getForecast: function (res) {
-    console.log("button clicked 2");
     let lat = res.data.coord.lat;
     let lon = res.data.coord.lon;
     let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts,current&appid=${getWeather.devKey}&units=imperial`;
@@ -105,11 +104,29 @@ const getWeather = {
     res.data.daily.forEach((day) => {
       const card = userCardTemplate.content.cloneNode(true).children[0];
       const forecastDay = card.querySelector("[data-header]");
-      const weatherForecastMax = card.querySelector("[data-body]");
+      const weatherForecastMax = card.querySelector("[data-max]");
       const weatherForecastMin = card.querySelector("[data-min]");
+      const weatherForecastIcon = card.querySelector("[data-pic]");
+      let timestamp = day.dt;
+      let convert = new Date(timestamp * 1000);
+      let weekdays = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      let dayOfWeek = weekdays[convert.getDay()];
       forecastDay.textContent = day.dt;
+      forecastDay.textContent = dayOfWeek;
       weatherForecastMax.textContent = `High temp ${day.temp.max}°  /`;
       weatherForecastMin.textContent = `Lo temp ${day.temp.min}°`;
+
+      weatherForecastIcon.innerHTML = `<img src="images/icons/${day.weather[0].icon}.png" class="smIcon" />`;
+      console.log(weatherForecastIcon);
+
       userCardContainer.append(card);
     });
   },
