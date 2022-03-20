@@ -56,6 +56,7 @@ const getWeather = {
 
   showWeather: function (response) {
     console.log(response);
+
     document.getElementById("updateCity").innerHTML = `${response.data.name}`;
     document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
     let currentIcon = response.data.weather[0].icon;
@@ -79,6 +80,11 @@ const getWeather = {
     document.querySelector(
       "#feelsLike"
     ).innerHTML = `The temperature feels like it's ${feelsLike}° outside.`;
+
+    const userCardContainer = document.querySelector(
+      "[data-user-cards-container]"
+    );
+    userCardContainer.innerHTML = "";
   },
 
   test: function (userEntry) {
@@ -90,6 +96,7 @@ const getWeather = {
     let lat = res.data.coord.lat;
     let lon = res.data.coord.lon;
     let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts,current&appid=${getWeather.devKey}&units=imperial`;
+
     axios.get(apiURL).then(getWeather.showForecast);
   },
 
@@ -123,16 +130,11 @@ const getWeather = {
       forecastDay.textContent = dayOfWeek;
       weatherForecastMax.textContent = `High temp ${day.temp.max}°  /`;
       weatherForecastMin.textContent = `Lo temp ${day.temp.min}°`;
-
       weatherForecastIcon.innerHTML = `<img src="images/icons/${day.weather[0].icon}.png" class="smIcon" />`;
-      console.log(weatherForecastIcon);
-
       userCardContainer.append(card);
     });
   },
 };
-
-getFiveDay = {};
 
 getWeather.generic();
 
