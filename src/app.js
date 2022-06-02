@@ -38,7 +38,7 @@ let searchIcon = document.getElementById("submitSearch");
 
 //Weather object
 const getWeather = {
-  devKey: "3711439e85a5b0487eab981ef384735a", // access key
+  devKey: "4d52faf0671d8976c45e49132852bc77", // access key
 
   //displays generic weather onload
   generic: function () {
